@@ -1,4 +1,4 @@
-package BackEnd.Trabalho02;
+package BackEnd.Trabalho02.SegundaQuestao;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,14 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/segundaquestao")
 public class ImcController {
-    public boolean isFloat(String valor) {
-        try {
-            Float.parseFloat(valor);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+
     @PostMapping("/imc")
     public String imc(@RequestBody ImcRequest dados) {
         Float peso = dados.peso;

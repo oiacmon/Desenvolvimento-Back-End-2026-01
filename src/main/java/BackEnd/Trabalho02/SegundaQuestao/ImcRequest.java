@@ -1,4 +1,4 @@
-package BackEnd.Trabalho02;
+package BackEnd.Trabalho02.SegundaQuestao;
 
 public class ImcRequest {
         public Float peso;

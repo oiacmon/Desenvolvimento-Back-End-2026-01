@@ -1,9 +1,9 @@
 # 🧮 Trabalho de Back-End
 
-Este projeto faz parte do Trabalho 02 da disciplina de Back-End.  
-A **Primeira Questão** consiste em criar um serviço REST capaz de validar um CPF enviado pelo usuário.
-A **Segunda Questão** consiste em criar um serviço REST capaz de calcular o Índice de massa corporal de uma pessoa.
-
+Este projeto faz parte do Trabalho 02 da disciplina de Back-End.    
+A **Primeira Questão** consiste em criar um serviço REST capaz de validar um CPF enviado pelo usuário.  
+A **Segunda Questão** consiste em criar um serviço REST capaz de calcular o Índice de massa corporal de uma pessoa.  
+A **Terceita Questão** calcula a distância entre dois pontos em um plano cartesiano utilizando o serviço REST.
 ---
 
 ## 🚀 Tecnologias utilizadas
@@ -20,6 +20,9 @@ A **Segunda Questão** consiste em criar um serviço REST capaz de calcular o Í
 - `CpfController.java` → Controller responsável por validar o CPF
 - `imcController.java` → Controller responsável por calcular o IMC
 - `imcRequest.java` → Classe que representa os dados enviados pelo usuário (peso e altura) para o cálculo do IMC
+- `CartesianController.java` → Controller responsável por calcular a distância entre dois pontos
+- `CartesianRequest.java` → Classe que representa os pontos no plano cartesiano
+
 
 ---
 
@@ -63,6 +66,33 @@ Este endpoint recebe dois dados, o peso e a altura, e retornam o cálculo do IMC
 {
     "peso": 80,
     "altura": 1.8
+}
+```
+6. Clique em Send.
+
+## 📌 Endpoint da Terceira Questão
+
+### **POST /terceiraquestao/cartesian**
+
+Este endpoint recebe quatro dados, sendo eles coordenadas para localizar e calcular a distância dos pontos no plano cartesiano.  
+Usamos a Fórmula:   
+$$\text{distância = }\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$$
+
+---
+
+## 📥 Como enviar a requisição no Postman
+
+1. Abra o **Postman Desktop** (não funciona no Postman Web para localhost).
+2. Selecione o método **POST**.
+3. Use a URL: http://localhost:8080/terceiraquestao/cartesian
+4. Vá em **Body → raw → JSON**.
+5. Envie os dados como **string**:
+```
+{
+    "x1": 1,
+    "y1": 3,
+    "x2": 7,
+    "y2": 2
 }
 ```
 6. Clique em Send.

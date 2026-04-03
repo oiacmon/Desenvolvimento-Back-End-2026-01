@@ -1,4 +1,4 @@
-package BackEnd.Trabalho02;
+package BackEnd.Trabalho02.PrimeiraQuestao;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
