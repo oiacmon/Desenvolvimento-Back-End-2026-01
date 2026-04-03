@@ -12,6 +12,7 @@ public class CpfController {
     @PostMapping("/cpf")
     public String validarCpf(@RequestBody String cpf) {
 
+        // Remove tudo que não for número
         cpf = cpf.replaceAll("\\D", "");
 
         if (cpf.length() != 11) {
@@ -30,6 +31,7 @@ public class CpfController {
     }
 
     private boolean validarDigitos(String cpf) {
+
         int soma = 0;
         int peso = 10;
 
@@ -40,7 +42,9 @@ public class CpfController {
         int primeiroDigito = 11 - (soma % 11);
         if (primeiroDigito > 9) primeiroDigito = 0;
 
-        if (primeiroDigito != (cpf.charAt(9) - '0')) return false;
+        if (primeiroDigito != (cpf.charAt(9) - '0')) {
+            return false;
+        }
 
         soma = 0;
         peso = 11;

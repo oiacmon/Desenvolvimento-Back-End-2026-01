@@ -11,12 +11,12 @@ public class ImcController {
 
     @PostMapping("/imc")
     public String imc(@RequestBody ImcRequest dados) {
-        Float peso = dados.peso;
-        Float altura = dados.altura;
 
-        Float calcimc = peso / (altura * altura);
+        float peso = dados.peso;
+        float altura = dados.altura;
 
-        return String.format("Seu IMC é igual a %.2f", calcimc);
+        float calcImc = peso / (altura * altura);
+
+        return String.format("Seu IMC é igual a %.2f", calcImc);
     }
 }
-//fazer readme para isso, tirar comentarios do 1

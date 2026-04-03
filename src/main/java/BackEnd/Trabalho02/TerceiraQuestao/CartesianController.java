@@ -11,6 +11,7 @@ public class CartesianController {
 
     @PostMapping("/cartesian")
     public String cartesian(@RequestBody CartesianRequest dados) {
+
         int x1 = dados.x1;
         int y1 = dados.y1;
         int x2 = dados.x2;
@@ -22,4 +23,3 @@ public class CartesianController {
         return String.format("%1$,.2f", distance);
     }
 }
-
