@@ -4,7 +4,8 @@
 - A **Primeira Questão** consiste em criar um serviço REST capaz de validar um CPF enviado pelo usuário.  
 - A **Segunda Questão** consiste em criar um serviço REST capaz de calcular o Índice de massa corporal de uma pessoa.  
 - A **Terceita Questão** calcula a distância entre dois pontos em um plano cartesiano utilizando o serviço REST.  
-- A **Quarta Questão** consiste em criar um serviço REST que recebe os três lados de um triângulo e retorna o seu perímetro.
+- A **Quarta Questão** consiste em criar um serviço REST que recebe os três lados de um triângulo e retorna o seu perímetro.   
+- A **Quinta Questão** Recebe os valores dos lados de um triângulo e retorna qual o tipo do triângulo (Escaleno, Isósceles, Equilátero).
 
 ---
 
@@ -18,13 +19,16 @@
 
 ## 📁 Estrutura do projeto
 
-- `Trabalho02Application.java` → Classe principal do Spring Boot
-- `CpfController.java` → Controller responsável por validar o CPF
-- `imcController.java` → Controller responsável por calcular o IMC
-- `imcRequest.java` → Classe que representa os dados enviados pelo usuário (peso e altura) para o cálculo do IMC
-- `CartesianController.java` → Controller responsável por calcular a distância entre dois pontos
-- `CartesianRequest.java` → Classe que representa os pontos no plano cartesiano
-
+- `Trabalho02Application.java` → Classe principal do Spring Boot.
+- `CpfController.java` → Controller responsável por validar o CPF.
+- `imcController.java` → Controller responsável por calcular o IMC.
+- `imcRequest.java` → Classe que representa os dados enviados pelo usuário (peso e altura) para o cálculo do IMC.
+- `CartesianController.java` → Controller responsável por calcular a distância entre dois pontos.
+- `CartesianRequest.java` → Classe que representa os pontos no plano cartesiano.
+- `PerimeterController` → Controller responsável por calcular o perímetro do triângulo.
+- `PerimeterRequest` → Classe que agrupa os valores dos lados para enviar para o PerimeterController. 
+- `TriangleController` → Controller que classifica o tipo do triângulo de acordo com os valores dados de seus lados.
+- `TriangleRequest` → Classe que recebe os valores dos lados do triângulo e retorna o seu "tipo" (Escaleno, Isósceles, Equilátero).
 
 ---
 
@@ -113,6 +117,31 @@ Com isso é calculado o perímetro de um triângulo com uma soma simples dos tr�
 1. Abra o **Postman Desktop** (não funciona no Postman Web para localhost).
 2. Selecione o método **POST**.
 3. Use a URL: http://localhost:8080/quartaquestao/perimeter
+4. Vá em **Body → raw → JSON**.
+5. Envie os dados como **string**:
+```
+{
+    "lado1":  5,
+    "lado2": 7,
+    "lado3": 6
+}
+```
+6. Clique em Send.
+
+## 📌 Endpoint da Quinta Questão
+
+### **POST /quintaquestao/triangle**
+
+Este endpoint recebe três dados, sendo eles referentes aos lados do triângulo.  
+Com isso é calculado o tipo do triângulo com uma comparação de igualdades.
+
+---
+
+## 📥 Como enviar a requisição no Postman
+
+1. Abra o **Postman Desktop** (não funciona no Postman Web para localhost).
+2. Selecione o método **POST**.
+3. Use a URL: http://localhost:8080/quintaquestao/triangle
 4. Vá em **Body → raw → JSON**.
 5. Envie os dados como **string**:
 ```
