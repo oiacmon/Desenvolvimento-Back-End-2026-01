@@ -12,18 +12,16 @@ public class CpfController {
     @PostMapping("/cpf")
     public String validarCpf(@RequestBody String cpf) {
 
-        cpf = cpf.replaceAll("\\D", ""); // remove pontos e traços
+        cpf = cpf.replaceAll("\\D", "");
 
         if (cpf.length() != 11) {
             return "CPF inválido: tamanho incorreto";
         }
 
-        // Verifica se todos os dígitos são iguais (caso clássico de CPF inválido)
         if (cpf.matches("(\\d)\\1{10}")) {
             return "CPF inválido: dígitos repetidos";
         }
 
-        // Cálculo dos dígitos verificadores
         if (!validarDigitos(cpf)) {
             return "CPF inválido";
         }
@@ -35,7 +33,6 @@ public class CpfController {
         int soma = 0;
         int peso = 10;
 
-        // Primeiro dígito verificador
         for (int i = 0; i < 9; i++) {
             soma += (cpf.charAt(i) - '0') * peso--;
         }
@@ -45,7 +42,6 @@ public class CpfController {
 
         if (primeiroDigito != (cpf.charAt(9) - '0')) return false;
 
-        // Segundo dígito verificador
         soma = 0;
         peso = 11;
 
