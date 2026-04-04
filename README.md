@@ -7,7 +7,7 @@
 - A **Quarta Questão** consiste em criar um serviço REST que recebe os três lados de um triângulo e retorna o seu perímetro.   
 - A **Quinta Questão** Recebe os valores dos lados de um triângulo e retorna qual o tipo do triângulo (Escaleno, Isósceles, Equilátero).  
 - A **Sexta Questão** é mais complicada, ela retorna o valor de um carro de acordo com itens específicos como se o carro é importado ou se possui ar-condicionado por exemplo, sendo um serviço REST, como o foco desse trabalho em específico.  
-- A **Sétima Questão** 
+- A **Sétima Questão** possui um serviço REST que envolve um armazenamento na memória do próprio computador, com um sistema CRUD.
 
 ---
 
@@ -33,6 +33,10 @@
 - `TriangleRequest` → Classe que recebe os valores dos lados do triângulo e retorna o seu "tipo" (Escaleno, Isósceles, Equilátero).
 - `CarController` → Controller responsável por calcular o valor do carro de acordo com itens e características do carro.
 - `CarRequest` → Classe que organiza os atributos de carro para o controller CarController.
+- `Funcionario` → Classe com todos os atributos de Funcionário, importante para calcular valor do salário.
+- `FuncionarioList` → Classe simples para retornar uma lista com todos os funcionários.
+- `FuncionarioController` → Controller que executa funções como adicionar, verificar e deletar um funcionário, além de calcular o salário de um funcionário de acordo com os benefécios.
+
 
 ---
 
@@ -191,6 +195,50 @@ Com isso é calculado o valor do carro de acordo com os acessórios.
   "kitMultimidia": true
 }
 ```
+6. Clique em Send.
+
+---
+
+## 📌 Endpoints da Sétima Questão
+
+### **POST /setimaquestao/funcionarios**
+
+Este endpoint recebe diversos dados, algumas características de um funcionário, e **cadastra**.
+
+```
+{
+  "id": 1,
+  "nome": "Daves",
+  "salarioBruto": 300000,
+  "valeTransporte": true,
+  "trabalhaNoite": true,
+  "quantidadeFilhos": 1
+}
+```
+
+### **GET /setimaquestao/funcionarios**
+
+Este endpoint apenas verifica a lista de funcionários, é retornado então uma lista em json com os funcionários. 
+
+### **GET /setimaquestao/total-pago**
+
+Assim como o endpoint acima, por se tratar de uma requisição do método GET, apenas é requisitado e retornado o valor total que a Empresa paga em salários.
+
+### **GET /setimaquestao/funcionarios/1**
+
+Esse endpoint também se trata de uma verificação, na qual é passada o índice do funáriorio e é retornada apenas esse funcionário em específico.
+
+### **DELETE /setimaquestao/funcionarios/1**
+
+Para finalizar o CRUD, esse endpoint deleta o funcionário especifico passado o índice na url.
+
+## 📥 Como enviar a requisição no Postman
+
+1. Abra o **Postman Desktop** (não funciona no Postman Web para localhost).
+2. Selecione o método **POST**.
+3. Use a URL: http://localhost:8080/setimaquestao/funcionarios
+4. Vá em **Body → raw → JSON**.
+5. Envie os dados como **string**:
 6. Clique em Send.
 
 ---
